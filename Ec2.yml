@@ -1,0 +1,7 @@
+Resources:
+   MyEC2Instance:
+      Type: AWS::EC2::Instance
+      Properties:
+        ImageId: ami-0fc5d935ebf8bc3bc
+        InstanceType: t2.micro
+        KeyName: Abhishek
