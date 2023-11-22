@@ -13,3 +13,19 @@ Resources:
       CidrBlock: 10.0.0.0/24
       AvailabilityZone: 'us-east-1a'
       MapPublicIpOnLaunch: true
+
+Resources:
+   MyEC2Instance:
+      Type: AWS::EC2::Instance
+      Properties:
+        ImageId: ami-0fc5d935ebf8bc3bc
+        InstanceType: t2.micro
+        KeyName: Abhishek
+        UserData:
+          Fn::Base64: |
+            #!/bin/bash
+            apt update -y
+            apt install -y nginx       
+            systemctl start nginx
+            systemctl enable nginx
+
