@@ -1,0 +1,15 @@
+Mappings: 
+  Ec2RegionMap: 
+    us-east-1:
+      A1: ami-0fc5d935ebf8bc3bc
+    us-west-1:
+      A1: ami-0cbd40f694b804622
+    ap-south-1:
+      A1: ami-0287a05f0ef0e9d9a
+Resources: 
+  myEC2Instance: 
+    Type: "AWS::EC2::Instance"
+    Properties: 
+      ImageId: !FindInMap [Ec2RegionMap, !Ref "AWS::Region", A1]
+      InstanceType: t2.micro
+      

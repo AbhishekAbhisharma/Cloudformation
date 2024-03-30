@@ -1,0 +1,16 @@
+Parameters:
+  InstanceType:
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+      - t2.micro
+      - t2.small
+      - t2.nano
+      - t2.medium     
+    Description: Enter t2.micro, t2.small, t2.nano, t2.medium
+Resources:
+  Ec2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0fc5d935ebf8bc3bc
+      InstanceType: !Ref InstanceType

@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+  EnvType:
+    Description: Environment type.
+    Default: correct
+    Type: String
+    AllowedValues:
+      - correct
+      - wrong
+    ConstraintDescription: must specify correct or wrong.
+Conditions:
+  CreateCorrectResources: !Equals 
+    - !Ref EnvType
+    - correct
+Resources:
+  EC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Condition: CreateCorrectResources
+    Properties:
+      ImageId: ami-01bc990364452ab3e

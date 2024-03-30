@@ -1,0 +1,12 @@
+AWSTemplateFormationVersion: 2023-10-31
+Description: A simple EC2 Instance
+Parameters:
+  InstanceSize:
+    Type: String
+    Default: t2.micro
+Resources:
+  MyEc2Instance:
+    Type: " AWS::EC2::Instance"
+    Properties:
+      ImageId: "ami-0fc5d935ebf8bc3bc"
+      InstanceType: !Ref InstanceSize

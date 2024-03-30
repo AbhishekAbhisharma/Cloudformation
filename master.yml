@@ -1,0 +1,10 @@
+#master.yml
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  myStackWithParams:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL:  https:/s3.amazonaws.com/hack21/child.yml
+      Parameters:  
+        EC2Instance: t2.micro
+        KeyName: Abhishek
